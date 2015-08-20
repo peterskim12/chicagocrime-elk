@@ -34,7 +34,7 @@ If you aren't using the package installer (e.g. RPM or DEB), for the sake of sim
 
 Before starting Elasticsearch, you should change the name of your "cluster" to something that's likely unique. You can do this in the config file found at config/elasticsearch.yml under your Elasticsearch directory (or at /etc/elasticsearch/elasticsearch.yml if you used the DEB or RPM package installer). Set cluster.name to a unique value; for example:
 ```
-cluster.name: peters_awesome_escluster
+cluster.name: peters_awesome_cluster
 ```
 Now you can run Elasticsearch! Go to your Elasticsearch install dir and run:
 ```
