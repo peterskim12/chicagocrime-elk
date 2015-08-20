@@ -1,0 +1,45 @@
+{
+    "template" : "chicago_crime",
+    "settings" : {
+      "index.refresh_interval" : "30s",
+      "index.cache.query.enable": true,
+      "index.number_of_shards": 3
+    },
+    "mappings" : {
+      "_default_" : {
+        "dynamic_templates" : [{
+          "string_fields": {
+            "mapping": {
+              "index": "not_analyzed",
+              "type": "string",
+              "doc_values": true
+            },
+            "match_mapping_type": "string",
+            "match": "*"
+          }
+        }],
+        "properties" : {
+          "@version" : {
+            "index" : "not_analyzed",
+            "type" : "string"
+          },
+          "coords" : {
+            "type" : "geo_point",
+            "doc_values": true
+          },
+          "arrest" : {
+            "type" : "boolean",
+            "doc_values": true
+          },
+          "domestic" : {
+            "type" : "boolean",
+            "doc_values": true
+          }
+        },
+        "_all" : {
+          "enabled" : true
+        }
+      }
+    },
+    "aliases" : { }
+}
