@@ -20,28 +20,28 @@ Get the appropriate package for your operating system for each of the three proj
 ## Installation
 
 If you aren't using the package installer (e.g. RPM or DEB), for the sake of simplicity, you can uncompress them into the same folder. For example, on my Mac, I created an ~/elk directory that looks like this:
-
+```
   ~/elk
     elasticsearch-1.7.1/
     logstash-1.5.3/
     kibana-4.1.1-darwin-x64/
-
+```
 
 
 ## Starting Elasticsearch
 
 Before starting Elasticsearch, you should change the name of your "cluster" to something that's likely unique. You can do this in the config file found at config/elasticsearch.yml under your Elasticsearch directory (or at /etc/elasticsearch/elasticsearch.yml if you used the DEB or RPM package installer). Set cluster.name to a unique value; for example:
-
-  cluster.name: peters_awesome_escluster
-
+```
+cluster.name: peters_awesome_escluster
+```
 Now you can run Elasticsearch! Go to your Elasticsearch install dir and run:
-
+```
   bin/elasticsearch
-
+```
 With the DEB/RPM installers, you can start the service:
-
+```
   service elasticsearch start
-
+```
 You now have a running Elasticsearch instance!
 
 ## Indexing data into Elasticsearch using Logstash
@@ -49,23 +49,23 @@ You now have a running Elasticsearch instance!
 If you haven't downloaded the CSV formatted Chicago crime data yet, do so now using the link at the top of this README.
 
 You'll need to chop off the first line of the file since the Logstash CSV filter doesn't do anything special with the header row:
-
+```
   sed -i -e "1d" $FILE
-
+```
 where $FILE is the name of the Chicago crime CSV file.
 
 Indexing this data set is as simple as running this command:
-
+```
   ~/elk/logstash-1.5.3/bin/logstash -f logstash.conf < Crimes_-_2001_to_present.csv
-
+```
 Depending on the speed of your machine, the data should finish indexing in somewhere between 5-25 minutes.
 
 ## Running Kibana
 
 Run Kibana with this command:
-
+```
   ~/elk/kibana-4.1.1-darwin-x64/bin/kibana
-
+```
 Detailed instructions on getting started with Kibana can be found here:
 
   https://www.elastic.co/guide/en/kibana/current/index.html
