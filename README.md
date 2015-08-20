@@ -23,10 +23,10 @@ Get the appropriate package for your operating system for each of the three proj
 
 If you aren't using the package installer (e.g. RPM or DEB), for the sake of simplicity, you can uncompress them into the same folder. For example, on my Mac, I created an ~/elk directory that looks like this:
 ```
-  ~/elk
-    elasticsearch-1.7.1/
-    logstash-1.5.3/
-    kibana-4.1.1-darwin-x64/
+~/elk
+  elasticsearch-1.7.1/
+  logstash-1.5.3/
+  kibana-4.1.1-darwin-x64/
 ```
 
 
@@ -38,11 +38,11 @@ cluster.name: peters_awesome_cluster
 ```
 Now you can run Elasticsearch! Go to your Elasticsearch install dir and run:
 ```
-  bin/elasticsearch
+bin/elasticsearch
 ```
 With the DEB/RPM installers, you can start the service:
 ```
-  service elasticsearch start
+service elasticsearch start
 ```
 You now have a running Elasticsearch instance!
 
@@ -52,13 +52,13 @@ If you haven't downloaded the CSV formatted Chicago crime data yet, do so now us
 
 You'll need to chop off the first line of the file since the Logstash CSV filter doesn't do anything special with the header row:
 ```
-  sed -i -e "1d" $FILE
+sed -i -e "1d" $FILE
 ```
 where $FILE is the name of the Chicago crime CSV file.
 
 Indexing this data set is as simple as running this command:
 ```
-  ~/elk/logstash-1.5.3/bin/logstash -f logstash.conf < Crimes_-_2001_to_present.csv
+~/elk/logstash-1.5.3/bin/logstash -f logstash.conf < Crimes_-_2001_to_present.csv
 ```
 Depending on the speed of your machine, the data should finish indexing in somewhere between 5-25 minutes.
 
@@ -66,7 +66,7 @@ Depending on the speed of your machine, the data should finish indexing in somew
 
 Run Kibana with this command:
 ```
-  ~/elk/kibana-4.1.1-darwin-x64/bin/kibana
+~/elk/kibana-4.1.1-darwin-x64/bin/kibana
 ```
 Detailed instructions on getting started with Kibana can be found here:
 
