@@ -29,6 +29,13 @@ If you aren't using the package installer (e.g. RPM or DEB), for the sake of sim
   kibana-4.1.1-darwin-x64/
 ```
 
+You should also install Marvel, which is free for development use. Marvel includes a great web-based query sandbox called Sense for writing Elasticsearch queries. Marvel can be installed by running:
+```
+bin/plugin -i elasticsearch/marvel/latest
+```
+from your Elasticsearch directory. This requires you to be connected to the internet.
+
+See the documentation here for more installation options: [https://www.elastic.co/guide/en/marvel/current/_installation.html](https://www.elastic.co/guide/en/marvel/current/_installation.html)
 
 ## Starting Elasticsearch
 
