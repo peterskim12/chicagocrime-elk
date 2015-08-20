@@ -3,6 +3,8 @@ This repo contains configs to help you get Chicago crime data into Elasticsearch
 
 * logstash.conf: The Logstash config file which helps parse and clean up the crime data.
 * index_template.json: An Elasticsearch index template for the crime data set. The Logstash config references this template in its elasticsearch output.
+* community_areas.yml: Mapping between community area codes and names.
+* wards.yml: Mapping between ward numbers and (current) aldermen for those wards.
 
 You will need to download the raw Chicago crime data files in CSV format from the City of Chicago Data Portal: [https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-present/ijzp-q8t2](https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-present/ijzp-q8t2).
 
